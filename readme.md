@@ -2,15 +2,15 @@
 
 ## 导入
 ```shell
-docker run lizongti/docker-tools:redis-dump -u 172.169.18.125  > redis-data
+docker run --rm lizongti/docker-tools:redis-dump -u localhost > redis-data
 ```
 
 ## 导出
 ```shell
-cat redis-data | docker run -i lizongti/docker-tools:redis-load -u 172.169.18.125
+cat redis-data | docker run --rm -i lizongti/docker-tools:redis-load -u localhost
 ```
 
 ## 管道传输
 ```shell
-docker run lizongti/docker-tools:redis-dump -u 172.169.18.125:6379 | docker run -i lizongti/docker-tools:redis-load -u 172.169.18.125:6380
+docker run --rm lizongti/docker-tools:redis-dump -u localhost:6379 | docker run --rm -i lizongti/docker-tools:redis-load -u localhost:6380
 ```
