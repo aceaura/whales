@@ -42,4 +42,6 @@ cat mysql-data | docker run -e MYSQL_PWD=root --rm lizongti/docker-tools:mysql-l
 ```
 
 ## 管道传输
+```shell
 docker run -e MYSQL_PWD=root --rm lizongti/docker-tools:mysql-dump -h192.168.0.1 -P3306 -uroot --databases db1 db2 | docker run -e MYSQL_PWD=root --rm lizongti/docker-tools:mysql-load -h192.168.0.1 -P3307 -uroot 
+```
