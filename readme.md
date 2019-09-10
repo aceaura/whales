@@ -1,4 +1,4 @@
-# 1 Redis 数据导入导出
+# 1. Redis 数据导入导出
 注意：这里的ip必须使用docker host的内网和外网地址，不可以使用localhost或者127.0.0.1，这都是容器内部的地址。
 ## 1.1 Redis导出
 ```shell
@@ -15,7 +15,7 @@ cat redis-data | docker run --rm -i lizongti/docker-tools:redis-load -u 192.168.
 docker run --rm lizongti/docker-tools:redis-dump -u 192.168.0.1:6379 | docker run --rm -i lizongti/docker-tools:redis-load -u 192.168.0.1:6380
 ```
 
-# 2 Mysql 数据导入导出
+# 2. Mysql 数据导入导出
 注意：这里的ip必须使用docker host的内网和外网地址，不可以使用localhost或者127.0.0.1，这都是容器内部的地址。
 ## 2.1 Mysql导出
 ```shell
