@@ -1,23 +1,23 @@
-# Redis 数据导入导出
+# 1 Redis 数据导入导出
 注意：这里的ip必须使用docker host的内网和外网地址，不可以使用localhost或者127.0.0.1，这都是容器内部的地址。
-## Redis导出
+## 1.1 Redis导出
 ```shell
 docker run --rm lizongti/docker-tools:redis-dump -u 192.168.0.1 > redis-data
 ```
 
-## Redis导入
+## 1.2 Redis导入
 ```shell
 cat redis-data | docker run --rm -i lizongti/docker-tools:redis-load -u 192.168.0.1
 ```
 
-## Redis管道传输
+## 1.3 Redis管道传输
 ```shell
 docker run --rm lizongti/docker-tools:redis-dump -u 192.168.0.1:6379 | docker run --rm -i lizongti/docker-tools:redis-load -u 192.168.0.1:6380
 ```
 
-# Mysql 数据导入导出
+# 2 Mysql 数据导入导出
 注意：这里的ip必须使用docker host的内网和外网地址，不可以使用localhost或者127.0.0.1，这都是容器内部的地址。
-## Mysql导出
+## 2.1 Mysql导出
 ```shell
 # 导出数据和结构
 docker run -e MYSQL_PWD=root --rm lizongti/docker-tools:mysql-dump -h192.168.0.1 -P3306 -uroot --databases db1 db2 > mysql-data
@@ -36,17 +36,17 @@ docker run -e MYSQL_PWD=root --rm lizongti/docker-tools:mysql-dump --no-data -h1
 --skip-add-locks       ---取消在每个表导出之前增加LOCK TABLES（默认存在锁）
 --skip-comments        ---注释信息(默认存在)
 ```
-## Mysql导入
+## 2.2 Mysql导入
 ```shell
 cat mysql-data | docker run -e MYSQL_PWD=root --rm lizongti/docker-tools:mysql-load -h192.168.0.1 -P3306 -uroot 
 ```
 
-## Mysql管道传输
+## 2.3 Mysql管道传输
 ```shell
 docker run -e MYSQL_PWD=root --rm lizongti/docker-tools:mysql-dump -h192.168.0.1 -P3306 -uroot --databases db1 db2 | docker run -e MYSQL_PWD=root --rm lizongti/docker-tools:mysql-load -h192.168.0.1 -P3307 -uroot 
 ```
 
-## Mysql导出成Redis load格式
+## 2.4 Mysql导出成Redis load格式
 mysql表中,id存key,data存json字符串，导出成redis格式，可以利用select拼装json.
 ```shell
 docker run --rm -e MYSQL_PWD=root -it lizongti/docker-tools:mysql-load -h192.168.0.1 -P3306 -uroot -NBsr -e \
