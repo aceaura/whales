@@ -5,7 +5,8 @@ ENV MYSQL_HOST=0.0.0.0 \
     MYSQL_USER=root \
     MYSQL_PASSWORD=root \
     OUTPUT_DIR=/mysql-dump \
-    WORK_DIR=/mysql-dump
+    WORK_DIR=/mysql-dump \
+    PYSPARK_PYTHON=python3
 
 COPY /script/mysql-5-spark-dump-entrypoint.py /
 
