@@ -1,6 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark import SparkConf
 import os, sys, time, importlib, multiprocessing
+sys.path.append("/" if "WORK_DIR" not in os.environ else os.environ["WORK_DIR"])
 
 mysql_host = "localhost" if "MYSQL_HOST" not in os.environ else os.environ["MYSQL_HOST"]
 mysql_port = 3306 if "MYSQL_PORT" not in os.environ else int(os.environ["MYSQL_PORT"])
