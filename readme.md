@@ -53,3 +53,18 @@ docker run --rm -e MYSQL_PWD=root -it lizongti/docker-tools:mysql-load -h192.168
 "select concat('{\"db\":0,\"key\":\"tab[', id, ']\",\"ttl\":-1,\"type\":\"hash\",\"value\":', data,'}') from db.tab" > redis-data
 ```
 
+## 2.5 Mysql通过Spark导出成Redis load 格式
+简单使用, db.tab为数据库名.表名，map为/mysql-dump目录下的map入口文件名，取main方法为入口。
+```shell
+docker run -e MYSQL_HOST=192.168.0.1 -v /path/to/dir:/mysql-dump --rm lizongti/docker-tools:mysql-5-spark-dump db.tab map
+```
+全部参数版本
+```shell
+docker run \
+-e MYSQL_HOST=192.168.0.1 -e MYSQL_PORT=3306 \
+-e MYSQL_USER=root -e MYSQL_PASSWORD=root \
+-e OUTPUT_DIR=/mysql-dump -e WORK_DIR=/mysql-dump \
+-e PYSPARK_PYTHON=python3 \
+-v /opt/data_analysis/mysql-dump/src:/mysql-dump \
+--rm lizongti/docker-tools:mysql-5-spark-dump db.tab map
+```
