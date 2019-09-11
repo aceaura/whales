@@ -8,8 +8,8 @@ ENV MYSQL_HOST=0.0.0.0 \
     WORK_DIR=/mysql-dump \
     PYSPARK_PYTHON=python3
 
-WORKDIR /opt
+WORKDIR /
 
-COPY /script/mysql-5-spark-dump-entrypoint.py /opt
+COPY /script/mysql-5-spark-dump-entrypoint.py /script/mysql-5-spark-dump-runner.py /script/
 
-ENTRYPOINT ["/spark/bin/spark-submit", "--packages=mysql:mysql-connector-java:5.1.48", "/opt/mysql-dump-run/mysql-5-spark-dump-entrypoint.py"]
+ENTRYPOINT ["/script/mysql-5-spark-dump-entrypoint.py"]
