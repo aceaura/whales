@@ -12,4 +12,6 @@ do
 	protoc --proto_path=$PROTO_DIR/ --lua_out=$TARGET_LUA_DIR $f
 done
 
+cp -rf /protoc-gen-lua/protobuf $TARGET_LUA_DIR/
+
 echo "Done!"
