@@ -13,5 +13,6 @@ do
 done
 
 cp -rf /protoc-gen-lua/protobuf $TARGET_LUA_DIR/
+cp -rf /protoc-gen-lua/pb.so $TARGET_LUA_DIR/
 
 echo "Done!"
