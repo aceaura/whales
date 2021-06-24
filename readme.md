@@ -96,8 +96,11 @@ docker run \
 ### 3.2 protoc-gen-lua
 
 官方proto-gen-lua<https://code.google.com/archive/p/protoc-gen-lua>
-/path/to/proto是proto的路径 /path/to/pb是pb的路径
+* /path/to/proto是proto的路径 
+* /path/to/pb是pb的路径
 
 ```shell
 docker run --rm -v /path/to/proto:/proto -v /path/to/pb:/pb lizongti/docker-tools:protoc-gen-lua
 ```
+导出后pb目录含兼容linux下lua5.1及luajit的protobuf及pb.so, 将pb目录添加到lua path即可直接require使用pb文件
+
