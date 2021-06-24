@@ -91,3 +91,13 @@ docker run \
 
 ## 3. Protobuf代码/二进制生成工具(protoc)
 
+### 3.1 
+
+### 3.2 protoc-gen-lua
+
+官方proto-gen-lua<https://code.google.com/archive/p/protoc-gen-lua>
+/path/to/proto是proto的路径 /path/to/pb是pb的路径
+
+```shell
+docker run --rm -v /path/to/proto:/proto -v /path/to/pb:/pb lizongti/docker-tools:protoc-gen-lua
+```

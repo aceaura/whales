@@ -10,6 +10,6 @@ ENV MYSQL_HOST=0.0.0.0 \
 
 WORKDIR /
 
-COPY /script/mysql-5-spark-dump-entrypoint.py /script/mysql-5-spark-dump-runner.py /script/
+COPY /script/mysql-5-spark-dump/entrypoint.py /script/mysql-5-spark-dump/runner.py /script/
 
 ENTRYPOINT ["/usr/bin/python3", "/script/mysql-5-spark-dump-entrypoint.py"]
