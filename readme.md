@@ -91,9 +91,7 @@ docker run \
 
 ## 3. Protobuf代码/二进制生成工具(protoc)
 
-### 3.1 
-
-### 3.2 protoc-gen-lua
+### 3.1 protoc-gen-lua
 
 官方proto-gen-lua<https://code.google.com/archive/p/protoc-gen-lua>
 * /path/to/proto是proto的路径 
