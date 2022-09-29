@@ -2,7 +2,7 @@ name: Docker Image CI For [aceaura/whales:mysql-5-load]
 
 on:
   push:
-    branches: ["mysql-5-load"]
+    branches: ["master"]
 
 jobs:
   docker:
@@ -15,8 +15,8 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: { { .Env.username } }
+          password: { { .Env.password } }
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
