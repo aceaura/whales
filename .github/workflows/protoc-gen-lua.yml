@@ -1,4 +1,4 @@
-name: Docker Image CI For [cloudlibraries/aries]
+name: Docker Image CI For [aceaura/whales:protoc-gen-lua]
 
 on:
   push:
