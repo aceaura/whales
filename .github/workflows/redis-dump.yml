@@ -2,7 +2,8 @@ name: Docker Image CI For [aceaura/whales:redis-dump]
 
 on:
   push:
-    tags: ["redis-dump"]
+    tags:
+      - "redis-dump"
 
 jobs:
   docker:

@@ -2,7 +2,8 @@ name: Docker Image CI For [aceaura/whales:mysql-load]
 
 on:
   push:
-    tags: ["mysql-load"]
+    tags:
+      - "mysql-load"
 
 jobs:
   docker:

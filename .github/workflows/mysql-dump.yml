@@ -2,7 +2,8 @@ name: Docker Image CI For [aceaura/whales:mysql-dump]
 
 on:
   push:
-    tags: ["mysql-dump"]
+    tags:
+      - "mysql-dump"
 
 jobs:
   docker:

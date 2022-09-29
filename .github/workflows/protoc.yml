@@ -2,7 +2,8 @@ name: Docker Image CI For [aceaura/whales:protoc]
 
 on:
   push:
-    tags: ["protoc"]
+    tags:
+      - "protoc"
 
 jobs:
   docker:
