@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-ARG VERSION=main
+ARG VERSION=v3.12.4
 
 RUN \
     apt-get update && \
