@@ -2,7 +2,7 @@ name: Docker Image CI For [aceaura/whales:redis-load]
 
 on:
   push:
-    branches: ["master"]
+    tags: ["redis-load"]
 
 jobs:
   docker:

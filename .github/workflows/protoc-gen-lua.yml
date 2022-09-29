@@ -2,7 +2,7 @@ name: Docker Image CI For [aceaura/whales:protoc-gen-lua]
 
 on:
   push:
-    branches: ["master"]
+    tags: ["protoc-gen-lua"]
 
 jobs:
   docker:

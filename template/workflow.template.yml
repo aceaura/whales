@@ -2,7 +2,7 @@ name: Docker Image CI For [aceaura/whales:{{ .Env.tag }}]
 
 on:
   push:
-    branches: ["master"]
+    tags: ["{{ .Env.tag }}"]
 
 jobs:
   docker:
