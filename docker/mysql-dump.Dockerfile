@@ -1,3 +1,3 @@
-FROM lizongti/docker-tools:mysql-dl-base
+FROM mysql:latest
 
 ENTRYPOINT ["mysqldump"]

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -rf ./github/workflows/* && \
+rm -rf ./.github/workflows/* && \
 find ./docker -name "*.Dockerfile" | \
 awk -F '[/|.]' '{print $4}'| \
 xargs -I {} \
