@@ -6,7 +6,7 @@ RUN \
     apt-get update && \
     apt-get upgrade -y && \
     apt-get install autoconf automake libtool curl make g++ unzip git -y && \
-    git clone -b ${VERSION} https://github.com/google/protobuf.git \
+    git clone -b ${VERSION} https://github.com/google/protobuf.git && \
     cd protobuf && \
     git submodule update --init --recursive && \
     ./autogen.sh && \
