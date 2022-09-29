@@ -3,6 +3,7 @@
 ## 1. Redis 数据导入导出
 
 注意：这里的ip必须使用docker host的内网和外网地址，不可以使用localhost或者127.0.0.1，这都是容器内部的地址。
+
 ### 1.1 Redis导出
 
 ```shell
@@ -51,13 +52,13 @@ docker run -e MYSQL_PWD=root --rm lizongti/docker-tools:mysql-dump --no-data -h1
 ### 2.2 Mysql导入
 
 ```shell
-cat mysql-data | docker run -e MYSQL_PWD=root --rm lizongti/docker-tools:mysql-load -h192.168.0.1 -P3306 -uroot 
+cat mysql-data | docker run -e MYSQL_PWD=root --rm lizongti/docker-tools:mysql-load -h192.168.0.1 -P3306 -uroot
 ```
 
 ### 2.3 Mysql管道传输
 
 ```shell
-docker run -e MYSQL_PWD=root --rm lizongti/docker-tools:mysql-dump -h192.168.0.1 -P3306 -uroot --databases db1 db2 | docker run -e MYSQL_PWD=root --rm lizongti/docker-tools:mysql-load -h192.168.0.1 -P3307 -uroot 
+docker run -e MYSQL_PWD=root --rm lizongti/docker-tools:mysql-dump -h192.168.0.1 -P3306 -uroot --databases db1 db2 | docker run -e MYSQL_PWD=root --rm lizongti/docker-tools:mysql-load -h192.168.0.1 -P3307 -uroot
 ```
 
 ### 2.4 Mysql导出成Redis load格式
@@ -94,11 +95,13 @@ docker run \
 ### 3.1 protoc-gen-lua
 
 官方proto-gen-lua<https://code.google.com/archive/p/protoc-gen-lua>
-* /path/to/proto是proto的路径 
+
+* /path/to/proto是proto的路径
 * /path/to/pb是pb的路径
 
 ```shell
 docker run --rm -v /path/to/proto:/proto -v /path/to/pb:/pb lizongti/docker-tools:protoc-gen-lua
 ```
+
 导出后pb目录含兼容linux下lua5.1及luajit的protobuf及pb.so, 将pb目录添加到lua path即可直接require使用pb文件
 
