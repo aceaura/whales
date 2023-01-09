@@ -55,13 +55,7 @@ docker run -e MYSQL_PWD=root --rm aceaura/whales:mysql-dump --no-data -h192.168.
 cat mysql-data | docker run -e MYSQL_PWD=root --rm aceaura/whales:mysql-load -h192.168.0.1 -P3306 -uroot
 ```
 
-### 2.3 Mysql管道传输
-
-```shell
-docker run -e MYSQL_PWD=root --rm aceaura/whales:mysql-dump -h192.168.0.1 -P3306 -uroot --databases db1 db2 | docker run -e MYSQL_PWD=root --rm aceaura/whales:mysql-load -h192.168.0.1 -P3307 -uroot
-```
-
-### 2.4 Mysql导出成Redis load格式
+### 2.3 Mysql导出成Redis load格式
 
 mysql表中,id存key,data存json字符串，导出成redis格式，可以利用select拼装json.
 
@@ -70,7 +64,7 @@ docker run --rm -e MYSQL_PWD=root -it aceaura/whales:mysql-load -h192.168.0.1 -P
 "select concat('{\"db\":0,\"key\":\"tab[', id, ']\",\"ttl\":-1,\"type\":\"hash\",\"value\":', data,'}') from db.tab" > redis-data
 ```
 
-### 2.5 Mysql通过Spark导出成Redis load 格式
+### 2.4 Mysql通过Spark导出成Redis load 格式
 
 简单使用, db.tab为数据库名.表名，map为/mysql-dump目录下的map入口文件名，取main方法为入口。
 
